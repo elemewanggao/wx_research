@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/new/new",
+    "pages/home/home"
+  ],
+  "window": {
+    "navigationBarTitleText": "爱上调研",
+    "navigationBarBackgroundColor": "#3878DB"
+  },
+  "tabBar": {
+    "selectedColor": "#13227a",
+    "backgroundColor": "#FAFCFC",
+    "list": [{
+      "pagePath": "pages/new/new",
+      "text": "新建",
+      "iconPath": "images/new.png",
+      "selectedIconPath": "images/new_selected.png"
+    }, {
+      "pagePath": "pages/home/home",
+      "text": "我的",
+      "iconPath":"images/home.png",
+      "selectedIconPath": "images/home_selected.png"
+    }]
+  }
+}
