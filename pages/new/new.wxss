@@ -1,0 +1,31 @@
+@import "../../lib/weui.wxss";
+
+.canvas {
+  width: 304px;
+  height: 504px;
+  background-color: #fff;
+}
+
+.cover-view {
+  margin-left: 52px;
+  margin-top: 20px;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  background-color: #1345EC;
+  color: #fff;
+}
+
+.image-cnt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.cover-image {
+  width: 50px;
+  height: 50px;
+}
+

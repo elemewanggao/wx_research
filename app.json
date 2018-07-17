@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/new/new",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/vote/vote"
   ],
   "window": {
     "navigationBarTitleText": "爱上调研",
