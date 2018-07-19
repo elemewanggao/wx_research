@@ -1,1 +1,6 @@
-{}
+{
+  "window": {
+    "navigationBarTitleText": "新建投票",
+    "navigationBarBackgroundColor": "#3878DB"
+  }
+}

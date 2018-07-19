@@ -1,0 +1,7 @@
+@import "../../lib/weui.wxss";
+@import "../../lib/iconfont.wxss";
+
+.intro {
+  margin: 30px;
+  text-align: center;
+}

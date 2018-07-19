@@ -1,0 +1,75 @@
+<view class="page-body">
+  <view class="page-section">
+    <form bindsubmit="formSubmit">
+
+      <view class="weui-cell">
+        <input name="title" class="weui-input" focus placeholder="投票标题" bindblur='titleInput' />
+      </view>
+
+      <view class="weui-cell">
+        <input name="desc" class="weui-input" focus placeholder="描述(选填)" placeholder-style="color:#D0D3D4;font-size:70%" bindblur='descInput' />
+      </view>
+
+      <view class="weui-cell" wx:for="{{options}}">
+        <icon type="clear" color='red' size='15' data-opid='{{index}}' bindtap="delOption"></icon>
+        <input name="options" data-opid="{{index}}" class="weui-input" focus placeholder=" 选项" placeholder-style="color:#D0D3D4;font-size:80%" bindblur="inputOptionValue" />
+        <image name="image_url" src='{{item.uploadImageSrc}}' style="width:25px;height:25px;align:right" bindtap="chooseAndUpLoadImage" data-opid='{{index}}'></image>
+      </view>
+      <view class="weui-cell">
+        <icon type="success" color='blue' size='15' bindtap="addOption"></icon>
+        <text space="true" bindtap="addOption" decode="true" style="color:blue;font-size:80%"> 添加选项</text>
+      </view>
+
+      <view class="weui-cell">
+        <picker name="vtype" range="{{optionTypeRange}}" bindchange='optionTypeSelect' value='{{picker_index}}'>
+          <view>
+            投票类型: {{optionTypeRange[picker_index]}}
+          </view>
+        </picker>
+      </view>
+
+      <!-- <view class="weui-cell">
+        <picker name="mixOption" range="{{optionTypeRange}}" bindchange='optionTypeSelect' value='{{picker_index}}'>
+          <view>
+            至少选几项: {{optionTypeRange[picker_index]}}
+          </view>
+        </picker>
+      </view>
+
+      <view class="weui-cell">
+        <picker name="vtype" range="{{optionTypeRange}}" bindchange='optionTypeSelect' value='{{picker_index}}'>
+          <view>
+            至多选几项: {{optionTypeRange[picker_index]}}
+          </view>
+        </picker>
+      </view> -->
+
+      <view class="weui-cell">
+        匿名投票
+        <switch name="anonymous" checked='{{anonymousFlag}}' type='switch' bindchange='anonymousSwitch'></switch>
+      </view>
+
+      <view class="weui-cell">
+        公开结果
+        <switch name="open" checked='{{openFlag}}' type='switch' bindchange='openSwitch'></switch>
+      </view>
+
+      <view class="weui-cell">
+        <picker name="date" mode="date" value="{{date}}" start="2018-07-01" bindchange="bindDateChange">
+          <view class="picker">
+            截止日期: {{date}}
+          </view>
+        </picker>
+        <picker name="time" mode="time" value="{{time}}" start="00:01" bindchange="bindTimeChange">
+          <view class="picker">
+            {{time}}
+          </view>
+        </picker>
+      </view>
+
+      <view class="btn-area">
+        <button type='primary' form-type='submit' style="height:40px; width:300px">确认提交</button>
+      </view>
+    </form>
+  </view>
+</view>
