@@ -13,7 +13,7 @@
       <view class="weui-cell" wx:for="{{options}}">
         <icon type="clear" color='red' size='15' data-opid='{{index}}' bindtap="delOption"></icon>
         <input name="options" data-opid="{{index}}" class="weui-input" focus placeholder=" 选项" placeholder-style="color:#D0D3D4;font-size:80%" bindblur="inputOptionValue" />
-        <image name="image_url" src='{{item.uploadImageSrc}}' style="width:25px;height:25px;align:right" bindtap="chooseAndUpLoadImage" data-opid='{{index}}'></image>
+        <image name="image_url" src='{{item.uploadImageSrc}}' style="width:25px;height:25px;margin-left:100px" bindtap="chooseAndUpLoadImage" data-opid='{{index}}'></image>
       </view>
       <view class="weui-cell">
         <icon type="success" color='blue' size='15' bindtap="addOption"></icon>
@@ -23,7 +23,8 @@
       <view class="weui-cell">
         <picker name="vtype" range="{{optionTypeRange}}" bindchange='optionTypeSelect' value='{{picker_index}}'>
           <view>
-            投票类型: {{optionTypeRange[picker_index]}}
+            投票类型 
+            <text style="margin-left:170px">{{optionTypeRange[picker_index]}}></text>
           </view>
         </picker>
       </view>
@@ -46,12 +47,12 @@
 
       <view class="weui-cell">
         匿名投票
-        <switch name="anonymous" checked='{{anonymousFlag}}' type='switch' bindchange='anonymousSwitch'></switch>
+        <switch name="anonymous" checked='{{anonymousFlag}}' type='switch' bindchange='anonymousSwitch' style="margin-left:169px"></switch>
       </view>
 
       <view class="weui-cell">
         公开结果
-        <switch name="open" checked='{{openFlag}}' type='switch' bindchange='openSwitch'></switch>
+        <switch name="open" checked='{{openFlag}}' type='switch' bindchange='openSwitch' style="margin-left:169px"></switch>
       </view>
 
       <view class="weui-cell">
@@ -61,8 +62,8 @@
           </view>
         </picker>
         <picker name="time" mode="time" value="{{time}}" start="00:01" bindchange="bindTimeChange">
-          <view class="picker">
-            {{time}}
+          <view class="picker" style='margin-left:10px'>
+              {{time}}
           </view>
         </picker>
       </view>

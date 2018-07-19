@@ -1,8 +1,10 @@
-<view class="section">
+<text>1234567</text>
+
+<!-- <view class="section">
   <view class="section__title">flex-direction: column</view>
   <view class="flex-wrp" style="height: 300px;flex-direction:column;">
     <view class="flex-item">1</view>
     <view class="flex-item">2</view>
     <view class="flex-item">3</view>
   </view>
-</view>
+</view> -->
