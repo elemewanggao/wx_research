@@ -1,0 +1,55 @@
+<view class="page-body">
+  <view class="page-section">
+    <form bindsubmit="formSubmit">
+      <view class="weui-cells__title">
+        <view class="flex-wrp" style="flex-direction:column;">
+
+          <view class="flex-item" style="font-size:20px;color:#02212B">{{vote.title}}</view>
+          <view class="flex-item" style='color:#E8913A'>
+            [{{vote.selType == 1 ? '单选' : '多选'}}] [{{vote.status == 1 ? '进行中' : '已结束'}}] [参与人数:{{vote.participant_num}}]
+          </view>
+
+          <view class="flex-item">
+            <icon type="waiting" size='15'></icon>
+            截止时间: {{vote.deadline}}
+          </view>
+
+        </view>
+      </view>
+
+      <view class="weui-cell">
+        <view class="flex-wrp" style="flex-direction:column;">
+          <view class="flex-item">{{vote.desc}}</view>
+          <checkbox-group wx:if="{{vote.selType == 2}}" bindchange="optionChange">
+            <view class="flex-item" wx:for="{{items}}">
+            <!--这里还有问题  -->
+              <checkbox value='{{item.option_id}}' disabled='{{vote.status==2}}' checked='{{selected_option_ids.indexOf(item.option_id) != -1}}'>
+                {{selected_option_ids.in_array(item.option_id)}}
+                {{item.option_id}}
+                {{item.option_desc}}
+              </checkbox>
+              <progress style="width:250px;margin-left:35px" stroke-width="3" percent='{{item.vote_rate}}'></progress>
+              <text style='color:#039C39;font-size:12px;margin-left:35px'>{{item.vote_num}}票 {{item.vote_rate}}%</text>
+            </view>
+          </checkbox-group>
+
+          <radio-group wx:if="{{vote.selType == 1}}" bindchange="optionChange">
+            <view class="flex-item" wx:for="{{items}}">
+              <radio value='{{item.option_id}}' disabled='{{vote.status == 2}}' checked='{{selected_option_ids.indexOf(item.option_id) != -1}}'>
+                {{item.option_desc}}
+              </radio>
+              <progress style="width:250px;margin-left:35px" stroke-width="3" percent='{{item.vote_rate}}'></progress>
+              <text style='color:#039C39;font-size:12px;margin-left:35px'>{{item.vote_num}}票 {{item.vote_rate}}%</text>
+            </view>
+          </radio-group>
+
+        </view>
+      </view>
+
+      <view class="btn-area">
+        <button type='primary' form-type='submit' style="height:40px; width:300px">投票</button>
+      </view>
+
+    </form>
+  </view>
+</view>

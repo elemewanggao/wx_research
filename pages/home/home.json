@@ -1,1 +1,9 @@
-{}
+{
+    "navigationBarTitleText": "我的",
+    "navigationBarBackgroundColor": "#3878DB",
+    "usingComponents": {
+      "creator": "creator/creator",
+      "participant": "participant/participant"
+    }
+}
+  
