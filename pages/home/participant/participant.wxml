@@ -1,0 +1,9 @@
+<view class="section">
+  <view class="image-box" wx:for="{{items}}">
+    <image class="image-box-img" src='{{item.image_url}}' style='width:90px;height:90px'></image>
+    <view class="image-box-ctn">
+      <view class="image-box-title">{{item.title}}</view>
+      <view class="image-box-desc">{{item.voteNum}}票 {{item.selType == 1 ? '单选':'多选'}}</view>
+    </view>
+  </view>
+</view>

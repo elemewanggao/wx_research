@@ -5,7 +5,11 @@
     <view id='tabright' style="background:#F1F7F7" class='tab-right {{currentTab === 1 ? "tab-active" : ""}}' bindtap='switchTab'>我参与的</view>
   </view>
 
-  <view class='content-wrapper' wx:if='{{currentTab === 0}}'><movie/></view>
-  <view class='content-wrapper' wx:if='{{currentTab === 1}}'><music/></view>
+  <view class='content-wrapper' wx:if='{{currentTab === 0}}'>
+    <creator/>
+  </view>
+  <view class='content-wrapper' wx:if='{{currentTab === 1}}'>
+    <participant/>
+  </view>
 
 </view>
