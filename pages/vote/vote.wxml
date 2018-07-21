@@ -24,7 +24,7 @@
         <picker name="vtype" range="{{optionTypeRange}}" bindchange='optionTypeSelect' value='{{picker_index}}'>
           <view>
             投票类型 
-            <text style="margin-left:170px">{{optionTypeRange[picker_index]}}></text>
+            <text style='margin-left:210px'>{{optionTypeRange[picker_index]}}></text>
           </view>
         </picker>
       </view>
@@ -47,18 +47,19 @@
 
       <view class="weui-cell">
         匿名投票
-        <switch name="anonymous" checked='{{anonymousFlag}}' type='switch' bindchange='anonymousSwitch' style="margin-left:169px"></switch>
+        <switch name="anonymous" checked='{{anonymousFlag}}' type='switch' bindchange='anonymousSwitch' style="margin-left:210px"></switch>
       </view>
 
       <view class="weui-cell">
         公开结果
-        <switch name="open" checked='{{openFlag}}' type='switch' bindchange='openSwitch' style="margin-left:169px"></switch>
+        <switch name="open" checked='{{openFlag}}' type='switch' bindchange='openSwitch' style="margin-left:210px"></switch>
       </view>
 
       <view class="weui-cell">
         <picker name="date" mode="date" value="{{date}}" start="2018-07-01" bindchange="bindDateChange">
           <view class="picker">
-            截止日期: {{date}}
+            截止日期
+            <text style='margin-left:90px'>{{date}}</text>
           </view>
         </picker>
         <picker name="time" mode="time" value="{{time}}" start="00:01" bindchange="bindTimeChange">
@@ -68,9 +69,12 @@
         </picker>
       </view>
 
+<view class="weui-cell">
+</view>
       <view class="btn-area">
-        <button type='primary' form-type='submit' style="height:40px; width:300px">确认提交</button>
+        <button type='primary' form-type='submit' style="height:40px; width:300px" >确认提交</button>
       </view>
+      
     </form>
   </view>
 </view>

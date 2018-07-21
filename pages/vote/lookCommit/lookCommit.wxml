@@ -28,8 +28,10 @@
                 {{item.option_id}}
                 {{item.option_desc}}
               </checkbox>
-              <progress style="width:250px;margin-left:35px" stroke-width="3" percent='{{item.vote_rate}}'></progress>
-              <text style='color:#039C39;font-size:12px;margin-left:35px'>{{item.vote_num}}票 {{item.vote_rate}}%</text>
+              <progress style="width:320px;margin-left:35px" stroke-width="3" percent='{{item.vote_rate}}'>
+              <text style='color:#039C39;font-size:12px;margin-left:10px'>{{item.vote_num}}票 {{item.vote_rate}}%</text>
+              <!-- 添加用户头像 -->
+              </progress>
             </view>
           </checkbox-group>
 
