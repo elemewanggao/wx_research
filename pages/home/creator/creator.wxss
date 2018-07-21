@@ -1,1 +1,30 @@
-.flex-wrp {display: flex;}
+.image-box{
+  margin-bottom: 20rpx;
+  padding: 0 75rpx;
+  display: flex;
+  align-items: center;
+  background: #F1F7F7;
+}
+.image-box-img{
+  margin-right: 46rpx;
+}
+.image-box-ctn{
+  flex-shrink: 100;
+}
+.image-box-title{
+  font-size: 34rpx;
+}
+.image-box-desc{
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  color: #888;
+}
+
+.icon-small-wrp{
+  margin-right: 46rpx;
+  width: 93px;
+  height: 93px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -23,7 +23,7 @@
           <checkbox-group wx:if="{{vote.selType == 2}}" bindchange="optionChange">
             <view class="flex-item" wx:for="{{items}}">
             <!--这里还有问题  -->
-              <checkbox value='{{item.option_id}}' disabled='{{vote.status==2}}' checked='{{selected_option_ids.indexOf(item.option_id) != -1}}'>
+              <checkbox value='{{item.option_id}}' disabled='{{vote.status==2}}' checked='{{item.checked}}'>
                 {{selected_option_ids.in_array(item.option_id)}}
                 {{item.option_id}}
                 {{item.option_desc}}
