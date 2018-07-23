@@ -6,3 +6,10 @@
   text-align: center;
 }
 .flex-wrp {display: flex;}
+.bottom_btn {
+  position:fixed;
+  height:50px;
+  width:100%;
+  bottom:0;
+  background-color: red;
+}

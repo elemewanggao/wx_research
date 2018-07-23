@@ -22,14 +22,13 @@
           <view class="flex-item">{{vote.desc}}</view>
           <checkbox-group wx:if="{{vote.selType == 2}}" bindchange="optionChange">
             <view class="flex-item" wx:for="{{items}}">
-            <!--这里还有问题  -->
-              <checkbox value='{{item.option_id}}' disabled='{{vote.status==2}}' checked='{{item.checked}}'>
+              <checkbox value='{{item.option_id}}' disabled='{{vote.status==2}}' checked='{{item.checked}}' style='margin-bottom:15px'>
                 {{selected_option_ids.in_array(item.option_id)}}
                 {{item.option_id}}
                 {{item.option_desc}}
               </checkbox>
               <progress style="width:320px;margin-left:35px" stroke-width="3" percent='{{item.vote_rate}}'>
-              <text style='color:#039C39;font-size:12px;margin-left:10px'>{{item.vote_num}}票 {{item.vote_rate}}%</text>
+              <text style='color:#039C39;font-size:12px;margin-left:10px' wx:if="{{selected_option_ids.length > 0}}">{{item.vote_num}}票 {{item.vote_rate}}% </text>
               <!-- 添加用户头像 -->
               </progress>
             </view>
@@ -37,11 +36,12 @@
 
           <radio-group wx:if="{{vote.selType == 1}}" bindchange="optionChange">
             <view class="flex-item" wx:for="{{items}}">
-              <radio value='{{item.option_id}}' disabled='{{vote.status == 2}}' checked='{{selected_option_ids.indexOf(item.option_id) != -1}}'>
+              <radio value='{{item.option_id}}' disabled='{{vote.status == 2}}' checked='{{item.checked}}' style='margin-bottom:15px'>
                 {{item.option_desc}}
               </radio>
-              <progress style="width:250px;margin-left:35px" stroke-width="3" percent='{{item.vote_rate}}'></progress>
-              <text style='color:#039C39;font-size:12px;margin-left:35px'>{{item.vote_num}}票 {{item.vote_rate}}%</text>
+              <progress style="width:320px;margin-left:35px" stroke-width="3" percent='{{item.vote_rate}}'>
+                <text style='color:#039C39;font-size:12px;margin-left:10px' wx:if="{{selected_option_ids.length > 0}}">{{item.vote_num}}票 {{item.vote_rate}}% </text>
+              </progress>
             </view>
           </radio-group>
 
@@ -49,7 +49,9 @@
       </view>
 
       <view class="btn-area">
-        <button type='primary' form-type='submit' style="height:40px; width:300px">投票</button>
+        <button form-type='submit' class='bottom_btn' style="background-color:#AAAAAA;color:#436EEE" wx:if='{{vote.status == 2}}' disabled >已结束</button>
+        <button type='primary' form-type='submit' class='bottom_btn' wx:elif='{{selected_option_ids.length == 0}}'>投票</button>
+        <button form-type='submit' class='bottom_btn' style="background-color:#AAAAAA;color:#436EEE" wx:else disabled >您已投票</button>
       </view>
 
     </form>

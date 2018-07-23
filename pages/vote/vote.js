@@ -139,5 +139,8 @@ Page({
     wx.navigateTo({
       url: '../vote/lookCommit/lookCommit',
     })
-  }
+  },
+
+  onLoad: function(res) {
+  },
 })

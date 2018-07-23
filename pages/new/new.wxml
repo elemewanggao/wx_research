@@ -13,6 +13,7 @@
         <cover-image class="cover-image" bindtap="navigateToVote" src="/images/试卷.png"></cover-image>
       </cover-view>
       <cover-view class="cover-view" bindtap="navigateToVote">新建试卷</cover-view>
+      <button open-type="getUserInfo"></button>
     </canvas>
   </view>
 </view>

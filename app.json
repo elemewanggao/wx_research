@@ -3,7 +3,8 @@
     "pages/new/new",
     "pages/home/home",
     "pages/vote/vote",
-    "pages/vote/lookCommit/lookCommit"
+    "pages/vote/lookCommit/lookCommit",
+    "pages/authorize/authorize"
   ],
   "window": {
     "navigationBarTitleText": "爱上调研",

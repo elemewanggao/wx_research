@@ -9,7 +9,7 @@ Page({
       participant_num: 20,
       desc: "This is a test vote",
     },
-    selected_option_ids: [1, 2],
+    selected_option_ids: [],
     items: [
       { option_id: 1, option_desc: '美国', vote_rate: 20, vote_num: 10, checked: false },
       { option_id: 2, option_desc: '中国', vote_rate: 60, vote_num: 10, checked: false },
@@ -17,6 +17,12 @@ Page({
       { option_id: 4, option_desc: '日本', vote_rate: 80, vote_num: 10, checked: false },
       { option_id: 5, option_desc: '英国', vote_rate: 1, vote_num: 10, checked: false },
       { option_id: 6, option_desc: '法国', vote_rate: 50, vote_num: 10, checked: false },
+      { option_id: 7, option_desc: '美国', vote_rate: 20, vote_num: 10, checked: false },
+      { option_id: 8, option_desc: '中国', vote_rate: 60, vote_num: 10, checked: false },
+      { option_id: 9, option_desc: '巴西', vote_rate: 30, vote_num: 10, checked: false },
+      { option_id: 10, option_desc: '日本', vote_rate: 80, vote_num: 10, checked: false },
+      { option_id: 11, option_desc: '英国', vote_rate: 1, vote_num: 10, checked: false },
+      { option_id: 12, option_desc: '法国', vote_rate: 50, vote_num: 10, checked: false },
     ]
   },
   optionChange: function (e) {
@@ -49,5 +55,10 @@ Page({
     this.setData({
       items: that.data.items
     })
-  }
+  },
+  onShareAppMessage: function(res) {
+    return {
+      path: '/pages/vote/lookCommit/lookCommit'
+    }
+  },
 })
