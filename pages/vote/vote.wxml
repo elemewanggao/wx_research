@@ -13,7 +13,7 @@
       <view class="weui-cell" wx:for="{{options}}">
         <icon type="clear" color='red' size='15' data-opid='{{index}}' bindtap="delOption"></icon>
         <input name="options" data-opid="{{index}}" class="weui-input" focus placeholder=" 选项" placeholder-style="color:#D0D3D4;font-size:80%" bindblur="inputOptionValue" />
-        <image name="image_url" src='{{item.uploadImageSrc}}' style="width:25px;height:25px;margin-left:100px" bindtap="chooseAndUpLoadImage" data-opid='{{index}}'></image>
+        <image name="image_url" src='{{item.pic}}' style="width:25px;height:25px;margin-left:100px" bindtap="chooseAndUpLoadImage" data-opid='{{index}}'></image>
       </view>
       <view class="weui-cell">
         <icon type="success" color='blue' size='15' bindtap="addOption"></icon>

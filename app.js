@@ -15,13 +15,18 @@ App({
               withCredentials: true,
               success: function (res_user) {
                 wx.request({
-                  url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx531fbd69492dcdbb&secret=wx531fbd69492dcdbb&js_code=' + code +'&grant_type=authorization_code',
+                  url: 'http://localhost:7000/weixin/login/check',
+                  data: {
+                    js_code: code
+                  },
                   method: 'get',
                   header: {
                     'content-type': 'application/json'
                   },
                   success: function(res){
-                    console.log('res.data.openid', res.openid)
+                    console.log('login', res)
+                    console.log('openid', res.data.result.openid)
+                    wx.setStorageSync('openId', res.data.result.openid)
                   }
                 },
                 )

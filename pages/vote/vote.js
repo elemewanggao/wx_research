@@ -3,11 +3,11 @@ Page({
     title: '',
     desc: '',
     options: [{
-      content: '',
-      uploadImageSrc: '/images/upload_image.png',
+      desc: '',
+      pic: '/images/upload_image.png',
     }, {
-      content: '',
-      uploadImageSrc: '/images/upload_image.png',
+      desc: '',
+      pic: '/images/upload_image.png',
     }],
     optionTypeRange: ['单选', '多选'],
     // 投票类型sel_type = picker_index + 1
@@ -39,7 +39,7 @@ Page({
     var index = e.target.dataset.opid
     for (var i = 0; i < ops.length; i++) {
       if (i == index) {
-        this.data.options[i].content = e.detail.value
+        this.data.options[i].desc = e.detail.value
         break
       }
     }
@@ -48,8 +48,8 @@ Page({
     // 直接用this.data.options.input是不会生效的
     var ops = this.data.options
     ops.push({
-      content: '',
-      uploadImageSrc: '/images/upload_image.png',
+      desc: '',
+      pic: '/images/upload_image.png',
     })
     this.setData({
       options: ops
@@ -86,7 +86,7 @@ Page({
           success: function (res) {
             console.log('success', res)
             var tempFile = JSON.parse(res.data).result
-            that.data.options[opid].uploadImageSrc = tempFile
+            that.data.options[opid].pic = tempFile
           },
           fail: function (res) {
             console.log('fail')
@@ -135,9 +135,55 @@ Page({
 
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e)
-    console.log(this.data.options)
-    wx.navigateTo({
-      url: '../vote/lookCommit/lookCommit',
+    var is_anonymous = 0
+    var is_open = 0
+    if(e.detail.value.anonymous){
+      is_anonymous = 1
+    }
+    if(e.detail.value.open){
+      is_open = 1
+    }
+    var user = wx.getStorageSync('user')
+    var open_id = wx.getStorageSync('openId')
+    console.log('open_id', open_id)
+    var data = {
+      topic: e.detail.value.title,
+      desc: e.detail.value.desc,
+      deadline_time: e.detail.value.date + ' ' + e.detail.value.time + ':00',
+      is_anonymous: is_anonymous,
+      sel_type: e.detail.value.vtype + 1,
+      is_open: is_open,
+      wx_nick_name: user.nickName,
+      wx_open_id: open_id,
+      wx_avatar_url: user.avataUrl,
+      options: this.data.options,
+    }
+    wx.request({
+      url: 'http://localhost:7000/vote',
+      data: data,
+      method: 'POST',
+      success: function(res){
+        console.log('data', data)
+        console.log('response', res)
+
+        if(res.data.code == 200){
+          
+          wx.showToast({
+            title: '创建投票成功',
+            icon: 'success',
+            duration: 2500
+          })
+          wx.navigateTo({
+            url: '../vote/lookCommit/lookCommit',
+          })
+        }
+        else{
+          wx.showToast({
+            title: '创建投票失败',
+            icon: 'none'
+          })
+        }
+      }
     })
   },
 
